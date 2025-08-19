@@ -39,7 +39,7 @@ export async function GET(): Promise<NextResponse> {
 
     if (!response.ok) {
       // noinspection ExceptionCaughtLocallyJS
-		throw new Error(`UserInfo API error: ${response.status}`);
+      throw new Error(`UserInfo API error: ${response.status}`);
     }
 
     const userInfo = await response.json();

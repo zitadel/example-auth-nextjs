@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
-import { getMessage } from '@/app/auth/message';
+import { getMessage } from '@/lib/message.js';
 
 function AuthErrorContent() {
   const searchParams = useSearchParams();
