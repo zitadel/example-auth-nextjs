@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "prepack": "tsc --noEmit",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write .",
