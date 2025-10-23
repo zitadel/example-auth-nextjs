@@ -43,6 +43,9 @@ To run the application, you first need to copy the `.env.example` file to a new 
 ```dotenv
 # Port number where your Next.js server will listen for incoming HTTP requests.
 # Change this if port 3000 is already in use on your system.
+# Note: Next.js does not load .env.local early enough to pick the port for its own server startup.
+# That means Next.js chooses its default port (3000) unless you pass one from the shell or CLI flag.
+# E.g. `npm run dev -- -p 4000`
 PORT=3000
 
 # Session timeout in seconds. Users will be automatically logged out after this
@@ -74,7 +77,7 @@ ZITADEL_CLIENT_SECRET="your-randomly-generated-client-secret"
 
 # OAuth callback URL where ZITADEL redirects after user authentication. This
 # MUST exactly match a Redirect URI configured in your ZITADEL application.
-ZITADEL_CALLBACK_URL="http://localhost:3000/auth/callback"
+ZITADEL_CALLBACK_URL="http://localhost:3000/api/auth/callback/zitadel"
 
 # URL where users are redirected after logout. This should match a Post Logout
 # Redirect URI configured in your ZITADEL application settings.
