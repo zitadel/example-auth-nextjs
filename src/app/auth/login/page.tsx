@@ -11,7 +11,7 @@ import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Suspense } from 'react';
-import { getMessage } from '@/lib/message.js';
+import { getMessage } from '@/lib/message';
 
 function SignInContent() {
   const searchParams = useSearchParams();
