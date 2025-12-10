@@ -24,6 +24,13 @@ export async function GET(request: NextRequest) {
     const response = NextResponse.redirect(successUrl);
 
     response.headers.set('Clear-Site-Data', '"cookies"');
+    for (const cookie of request.cookies.getAll()) {
+      if (cookie.name.includes('authjs.')) {
+        response.cookies.delete(cookie.name);
+      }
+    }
+    response.cookies.delete('logout_state');
+
     return response;
   } else {
     const errorUrl = new URL('/logout/error', request.url);
