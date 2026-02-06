@@ -2,16 +2,9 @@
 
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 
-/**
- * Displays a user-friendly error page for failed logout attempts.
- *
- * This page is typically shown when a security check fails during the logout
- * process. The most common cause is a Cross-Site Request Forgery (CSRF)
- * protection failure, where a 'state' parameter from the identity provider
- * does not match the one stored securely in the user's session.
- */
-export default function LogoutErrorPage() {
+function LogoutErrorContent() {
   const params = useSearchParams();
   const reason = params.get('reason') || 'An unknown error occurred.';
 
@@ -49,5 +42,21 @@ export default function LogoutErrorPage() {
         </div>
       </div>
     </main>
+  );
+}
+
+/**
+ * Displays a user-friendly error page for failed logout attempts.
+ *
+ * This page is typically shown when a security check fails during the logout
+ * process. The most common cause is a Cross-Site Request Forgery (CSRF)
+ * protection failure, where a 'state' parameter from the identity provider
+ * does not match the one stored securely in the user's session.
+ */
+export default function LogoutErrorPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <LogoutErrorContent />
+    </Suspense>
   );
 }
