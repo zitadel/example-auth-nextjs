@@ -1,4 +1,4 @@
-import NextAuth, { NextAuthOptions } from 'next-auth';
+import { NextAuthOptions } from 'next-auth';
 import ZitadelProvider from 'next-auth/providers/zitadel';
 import { randomUUID } from 'crypto';
 import * as oidc from 'openid-client';
@@ -385,5 +385,3 @@ export const authOptions: NextAuthOptions = {
     },
   },
 };
-
-export default NextAuth(authOptions);
