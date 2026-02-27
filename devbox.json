@@ -1,6 +1,9 @@
 {
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.10.7/.schema/devbox.schema.json",
   "packages": ["nodejs@22"],
+  "env": {
+    "NPM_CONFIG_CACHE": "$DEVBOX_PROJECT_ROOT/.npm"
+  },
   "shell": {
     "init_hook": ["echo 'Welcome to devbox!' > /dev/null"],
     "scripts": {
