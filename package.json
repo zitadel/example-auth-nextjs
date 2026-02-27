@@ -10,7 +10,7 @@
     "build": "next build",
     "prepack": "tsc --noEmit",
     "start": "next dev",
-    "lint": "prettier --check . && eslint .",
+    "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "playwright test"
