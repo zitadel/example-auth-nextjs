@@ -16,7 +16,7 @@
     "test": "playwright test"
   },
   "dependencies": {
-    "next": "^16.1.5",
+    "next": "^16.1.7",
     "next-auth": "^4.24.12",
     "openid-client": "^6.6.2",
     "react": "19.1.0",
