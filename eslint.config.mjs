@@ -1,16 +1,13 @@
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
-import { FlatCompat } from '@eslint/eslintrc';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({ baseDirectory: __dirname });
+import nextConfig from 'eslint-config-next/core-web-vitals';
+import nextTypescript from 'eslint-config-next/typescript';
+import prettierConfig from 'eslint-config-prettier';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default [
   {
     ignores: ['.next/**', 'node_modules/**'],
   },
-  ...compat.extends('next/core-web-vitals', 'next/typescript', 'prettier'),
+  ...nextConfig,
+  ...nextTypescript,
+  prettierConfig,
 ];

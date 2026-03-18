@@ -4,14 +4,13 @@ import { useEffect } from 'react';
 import { signIn, useSession } from 'next-auth/react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
-import { router } from 'next/client';
 
 export default function ProfilePage() {
   const { data: session, status } = useSession();
 
   useEffect(() => {
     if (status === 'unauthenticated') {
-      void signIn('zitadel', { callbackUrl: router.asPath });
+      void signIn('zitadel', { callbackUrl: '/profile' });
     }
   }, [status]);
 
