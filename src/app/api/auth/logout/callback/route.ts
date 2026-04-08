@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { cookies } from 'next/headers';
 
+// noinspection JSUnusedGlobalSymbols
 /**
  * Handles the callback from an external Identity Provider (IdP) after a user
  * signs out. This endpoint is responsible for validating the logout request to
@@ -11,30 +11,30 @@ import { cookies } from 'next/headers';
  *
  * @param request - The incoming Next.js request object, which contains the
  * URL and its search parameters, including the `state` from the IdP.
- * @returns A NextResponse object that either redirects the user to a success
+ * @returns A redirect response that either redirects the user to a success
  * or error page. Upon success, it includes headers to delete session cookies.
  */
 export async function GET(request: NextRequest) {
-  const cookieStore = await cookies();
   const state = request.nextUrl.searchParams.get('state');
-  const logoutStateCookie = cookieStore.get('logout_state');
+  const logoutStateCookie = request.cookies.get('logout_state');
 
   if (state && logoutStateCookie && state === logoutStateCookie.value) {
     const successUrl = new URL('/logout/success', request.url);
-    const response = NextResponse.redirect(successUrl);
-
+    const response = NextResponse.redirect(successUrl, 302);
     response.headers.set('Clear-Site-Data', '"cookies"');
-    for (const cookie of request.cookies.getAll()) {
-      if (cookie.name.includes('authjs.')) {
-        response.cookies.delete(cookie.name);
+    for (const name of request.cookies.getAll().map((c) => c.name)) {
+      if (name.includes('authjs.')) {
+        response.cookies.delete({ name, path: '/' });
       }
     }
-    response.cookies.delete('logout_state');
-
+    response.cookies.delete({
+      name: 'logout_state',
+      path: '/api/auth/logout/callback',
+    });
     return response;
   } else {
     const errorUrl = new URL('/logout/error', request.url);
     errorUrl.searchParams.set('reason', 'Invalid or missing state parameter.');
-    return NextResponse.redirect(errorUrl);
+    return NextResponse.redirect(errorUrl, 302);
   }
 }
