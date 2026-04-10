@@ -83,6 +83,10 @@ ZITADEL_CALLBACK_URL="http://localhost:3000/api/auth/callback/zitadel"
 # Redirect URI configured in your ZITADEL application settings.
 ZITADEL_POST_LOGOUT_URL="http://localhost:3000/api/auth/logout/callback"
 
+# Optional. URL where users are redirected after successful login.
+# Defaults to "/profile" if not specified.
+ZITADEL_POST_LOGIN_URL="/profile"
+
 # NextAuth.js base URL for your application. In development, this is typically
 # http://localhost:3000. In production, use your actual domain.
 NEXTAUTH_URL="http://localhost:3000"
