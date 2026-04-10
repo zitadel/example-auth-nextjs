@@ -50,6 +50,7 @@ jobs:
   all-passed:
     name: Check Build Status
     runs-on: ubuntu-latest
+    if: always()
     needs:
       - lint-commits
       - code-style
@@ -62,5 +63,9 @@ jobs:
         with:
           egress-policy: audit
 
-      - name: Report Success
-        run: echo "All required checks passed successfully."
+      - name: Verify all jobs passed
+        run: |
+          if [[ "${{ contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') }}" == "true" ]]; then
+            echo "One or more jobs failed or were cancelled."
+            exit 1
+          fi
