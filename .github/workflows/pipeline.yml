@@ -2,6 +2,19 @@ name: Pipeline
 
 on:
   push:
+    branches:
+      - main
+      - master
+      - next
+      - next-major
+      - beta
+      - alpha
+      - '[0-9]*.x'
+      - develop
+      - 'release/**'
+      - 'hotfix/**'
+      - 'support/**'
+  pull_request:
 
 permissions:
   contents: write
