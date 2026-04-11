@@ -23,6 +23,7 @@
     "react-dom": "^19"
   },
   "devDependencies": {
+    "@commitlint/config-conventional": "^20.5.0",
     "@playwright/test": "^1.56.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^22",
