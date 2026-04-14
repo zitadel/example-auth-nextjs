@@ -11,7 +11,7 @@
   "otherPortsAttributes": {
     "onAutoForward": "silent"
   },
-  "onCreateCommand": "cp -n .env.example .env && rm -rf .next",
+  "onCreateCommand": "cp -n .env.example .env.local",
   "updateContentCommand": "npm ci",
   "postCreateCommand": "npx playwright install --with-deps chromium",
   "customizations": {
