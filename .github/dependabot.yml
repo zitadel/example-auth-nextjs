@@ -42,11 +42,11 @@ updates:
       prefix: 'chore(deps):'
     open-pull-requests-limit: 10
     groups:
-      actions-version-updates:
+      docker-version-updates:
         patterns:
           - '*'
         applies-to: 'version-updates'
-      actions-security-updates:
+      docker-security-updates:
         patterns:
           - '*'
         applies-to: 'security-updates'
