@@ -59,7 +59,7 @@ SESSION_SECRET="your-very-secret-and-strong-session-key"
 
 # Your ZITADEL instance domain URL. Found in your ZITADEL console under
 # instance settings. Include the full https:// URL.
-# Example: https://my-company-abc123.zitadel.cloud
+# Example: https://my-org-a1b2c3.zitadel.cloud
 ZITADEL_DOMAIN="https://your-zitadel-domain"
 
 # Application Client ID from your ZITADEL application settings. This unique
@@ -69,7 +69,7 @@ ZITADEL_CLIENT_ID="your-client-id"
 
 # While the Authorization Code Flow with PKCE for public clients
 # does not strictly require a client secret for OIDC specification compliance,
-# AuthJS will still require a value for its internal configuration.
+# Auth.js will still require a value for its internal configuration.
 # Therefore, please provide a randomly generated string here.
 # You can generate a secure key using:
 # node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
