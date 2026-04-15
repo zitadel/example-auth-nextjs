@@ -1,5 +1,5 @@
 {
-  "name": "ZITADEL Example Next.js Auth",
+  "name": "Zitadel Example Next.js Auth",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:22-bookworm",
   "forwardPorts": [3000],
   "portsAttributes": {
