@@ -37,7 +37,7 @@ export default function LogoutSuccessPage() {
           Logout successful
         </h1>
         <p className="mt-6 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">
-          Redirecting in 10 seconds...
+          Redirecting in 10 seconds…
         </p>
         <div className="mt-10 flex items-center justify-center gap-x-6">
           <Link

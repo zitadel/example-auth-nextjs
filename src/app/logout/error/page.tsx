@@ -55,7 +55,7 @@ function LogoutErrorContent() {
  */
 export default function LogoutErrorPage() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div>Loading…</div>}>
       <LogoutErrorContent />
     </Suspense>
   );

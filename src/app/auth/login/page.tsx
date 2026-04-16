@@ -41,7 +41,7 @@ function SignInContent() {
     return (
       <main className="flex-1 grid place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
         <div className="text-center">
-          <p className="text-gray-600">Loading...</p>
+          <p className="text-gray-600">Loading…</p>
         </div>
       </main>
     );
@@ -147,7 +147,7 @@ function SignInContent() {
  */
 export default function CustomSignInPage() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div>Loading…</div>}>
       <SignInContent />
     </Suspense>
   );
