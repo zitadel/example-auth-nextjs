@@ -34,7 +34,7 @@
     "eslint-config-next": "^16",
     "eslint-config-prettier": "^10.1.8",
     "knip": "^5.64.1",
-    "postcss": "^8.5.6",
+    "postcss": "^8.5.10",
     "prettier": "^3.6.2",
     "tailwindcss": "^4",
     "typescript": "^5"
