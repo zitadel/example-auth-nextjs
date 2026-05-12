@@ -8,13 +8,14 @@
     "node": ">=22.0.0"
   },
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "prepack": "tsc --noEmit",
-    "start": "next dev",
-    "lint": "eslint .",
+    "dev": "next dev",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prepack": "tsc --noEmit",
+    "start": "next dev",
     "test": "playwright test"
   },
   "dependencies": {
