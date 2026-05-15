@@ -98,9 +98,9 @@ Follow these steps to get the application running:
 
 ```bash
 # 1. Clone the repository
-git clone git@github.com:zitadel/example-nextjs-auth.git
+git clone git@github.com:zitadel/example-auth-nextjs.git
 
-cd example-nextjs-auth
+cd example-auth-nextjs
 
 # 2. Install the project dependencies
 npm install
