@@ -26,3 +26,6 @@ vite.config.ts.timestamp-*
 
 # Next.js generated types
 next-env.d.ts
+
+# TypeScript build info
+tsconfig.tsbuildinfo
