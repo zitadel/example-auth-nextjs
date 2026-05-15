@@ -1,6 +1,9 @@
 {
   "name": "Zitadel Example Next.js Auth",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:22-bookworm",
+  "features": {
+    "ghcr.io/jetify-com/devcontainer-feature/devbox:latest": {}
+  },
   "forwardPorts": [3000],
   "portsAttributes": {
     "3000": {
@@ -12,8 +15,8 @@
     "onAutoForward": "silent"
   },
   "onCreateCommand": "cp -n .env.example .env",
-  "updateContentCommand": "npm ci",
-  "postCreateCommand": "npx playwright install --with-deps chromium",
+  "updateContentCommand": "devbox run npm ci",
+  "postCreateCommand": "devbox run npx playwright install --with-deps chromium",
   "customizations": {
     "vscode": {
       "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"]
