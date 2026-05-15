@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   semi: true,
   trailingComma: 'all',
@@ -6,4 +5,6 @@ export default {
   printWidth: 80,
   tabWidth: 2,
   useTabs: false,
+  plugins: ['prettier-plugin-tailwindcss'],
+  tailwindStylesheet: './src/app/globals.css',
 };

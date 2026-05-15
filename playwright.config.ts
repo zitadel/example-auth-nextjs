@@ -15,6 +15,7 @@ const testEnv = {
   NEXTAUTH_SECRET: 'test-nextauth-secret-for-e2e-tests',
 };
 
+// noinspection JSUnusedGlobalSymbols
 export default defineConfig({
   testDir: './test',
   outputDir: './build/test-results',
