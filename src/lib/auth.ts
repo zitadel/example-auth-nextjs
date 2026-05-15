@@ -1,8 +1,8 @@
-import { NextAuthOptions } from 'next-auth';
-import ZitadelProvider from 'next-auth/providers/zitadel';
+import { type NextAuthConfig, NextAuth } from '@zitadel/next-auth';
+import Zitadel from '@auth/core/providers/zitadel';
 import { randomUUID } from 'crypto';
 import * as oidc from 'openid-client';
-import { JWT } from 'next-auth/jwt';
+import type { JWT } from '@auth/core/jwt';
 import { ZITADEL_SCOPES } from './scopes';
 
 /**
@@ -120,7 +120,7 @@ export async function buildLogoutUrl(
  * This makes ZITADEL tokens available throughout your application via the
  * useSession() hook and getServerSession() function.
  */
-declare module 'next-auth' {
+declare module '@auth/core/types' {
   // noinspection JSUnusedGlobalSymbols
   interface Session {
     /** The OpenID Connect ID token from ZITADEL - used for logout and user identification */
@@ -138,7 +138,7 @@ declare module 'next-auth' {
  * This internal interface stores tokens securely in the encrypted JWT that
  * NextAuth uses for session management.
  */
-declare module 'next-auth/jwt' {
+declare module '@auth/core/jwt' {
   // noinspection JSUnusedGlobalSymbols
   interface JWT {
     /** The OpenID Connect ID token from ZITADEL */
@@ -189,9 +189,9 @@ declare module 'next-auth/jwt' {
  * - **jwt**: Manages token storage and refresh logic
  * - **session**: Shapes what data is available to your app
  */
-export const authOptions: NextAuthOptions = {
+export const authOptions: NextAuthConfig = {
   providers: [
-    ZitadelProvider({
+    Zitadel({
       issuer: process.env.ZITADEL_DOMAIN!,
       clientId: process.env.ZITADEL_CLIENT_ID!,
       clientSecret: process.env.ZITADEL_CLIENT_SECRET!,
@@ -388,3 +388,5 @@ export const authOptions: NextAuthOptions = {
     },
   },
 };
+
+export const { handlers, auth } = NextAuth(authOptions);

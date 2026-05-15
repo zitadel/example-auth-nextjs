@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { signIn, useSession } from 'next-auth/react';
+import { signIn, useSession } from '@zitadel/next-auth/react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 

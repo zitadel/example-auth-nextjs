@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth/next';
-import { authOptions, buildLogoutUrl } from '@/lib/auth';
+import { auth } from '@/lib/auth';
+import { buildLogoutUrl } from '@/lib/auth';
 
 /**
  * Initiates the logout process by redirecting the user to the external Identity
@@ -15,8 +15,8 @@ import { authOptions, buildLogoutUrl } from '@/lib/auth';
  * response if no valid session exists. The response includes a secure state cookie
  * that will be validated in the logout callback.
  */
-export async function POST() {
-  const session = await getServerSession(authOptions);
+export async function POST(request: Request) {
+  const session = await auth(request as Request);
 
   if (!session?.idToken) {
     return NextResponse.json(

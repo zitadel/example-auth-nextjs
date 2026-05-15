@@ -1,6 +1,6 @@
 'use client';
 
-import { signIn } from 'next-auth/react';
+import { signIn } from '@zitadel/next-auth/react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import Image from 'next/image';

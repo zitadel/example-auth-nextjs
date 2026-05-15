@@ -3,10 +3,9 @@
 import {
   getProviders,
   getCsrfToken,
-  ClientSafeProvider,
-  LiteralUnion,
-} from 'next-auth/react';
-import { BuiltInProviderType } from 'next-auth/providers/index';
+  type ClientSafeProvider,
+} from '@zitadel/next-auth/react';
+import type { BuiltInProviderType } from '@auth/core/providers';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -19,7 +18,7 @@ function SignInContent() {
   const callbackUrl = searchParams.get('callbackUrl');
 
   const [providers, setProviders] = useState<Record<
-    LiteralUnion<BuiltInProviderType>,
+    string,
     ClientSafeProvider
   > | null>(null);
   const [csrfToken, setCsrfToken] = useState<string>('');
