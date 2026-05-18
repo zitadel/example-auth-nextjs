@@ -52,26 +52,6 @@ export async function buildLogoutUrl(
   return { url: urlObj.toString(), state };
 }
 
-declare module '@auth/core/types' {
-  // noinspection JSUnusedGlobalSymbols
-  interface Session {
-    idToken?: string;
-    accessToken?: string;
-    error?: string;
-  }
-}
-
-declare module '@auth/core/jwt' {
-  // noinspection JSUnusedGlobalSymbols
-  interface JWT {
-    idToken?: string;
-    accessToken?: string;
-    refreshToken?: string;
-    expiresAt?: number;
-    error?: string;
-  }
-}
-
 export const authOptions: NextAuthConfig = {
   providers: [
     Zitadel({
