@@ -1,5 +1,6 @@
+// noinspection JSUnusedGlobalSymbols
 import { NextResponse } from 'next/server';
-import { auth } from '@/lib/auth';
+import { getSession } from '@/lib/auth';
 import { buildLogoutUrl } from '@/lib/auth';
 
 /**
@@ -16,7 +17,7 @@ import { buildLogoutUrl } from '@/lib/auth';
  * that will be validated in the logout callback.
  */
 export async function POST(request: Request) {
-  const session = await auth(request as Request);
+  const session = await getSession(request as Request);
 
   if (!session?.idToken) {
     return NextResponse.json(

@@ -1,10 +1,11 @@
 import Link from 'next/link';
 
+// noinspection JSUnusedGlobalSymbols
 export default function NotFound() {
   return (
-    <main className="flex-1 grid place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
+    <main className="grid flex-1 place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
       <div className="text-center">
-        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gray-100 mb-6">
+        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-gray-100">
           <svg
             className="h-8 w-8 text-gray-600"
             fill="none"

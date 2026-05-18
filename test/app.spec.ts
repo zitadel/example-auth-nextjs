@@ -32,7 +32,7 @@ test('GET /api/auth/logout/callback clears authjs.* and logout_state', async ({
     .map((h) => h.value) as string[];
 
   expect(status).toBe(302);
-  expect(location).toMatch(/\/(auth\/)?logout\/success$/);
+  expect(location).toMatch(/\/logout\/success$/);
   expect(setCookies).toBeDefined();
   expect(Array.isArray(setCookies)).toBe(true);
 

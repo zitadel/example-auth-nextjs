@@ -1,3 +1,4 @@
+// noinspection JSUnusedGlobalSymbols
 'use client';
 
 import {
@@ -5,7 +6,6 @@ import {
   getCsrfToken,
   type ClientSafeProvider,
 } from '@zitadel/next-auth/react';
-import type { BuiltInProviderType } from '@auth/core/providers';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -38,7 +38,7 @@ function SignInContent() {
 
   if (!providers) {
     return (
-      <main className="flex-1 grid place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
+      <main className="grid flex-1 place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
         <div className="text-center">
           <p className="text-gray-600">Loading…</p>
         </div>
@@ -49,9 +49,9 @@ function SignInContent() {
   const provider = providers?.zitadel;
 
   return (
-    <main className="flex-1 grid place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
-      <div className="text-center max-w-md w-full">
-        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-blue-100 mb-6">
+    <main className="grid flex-1 place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
+      <div className="w-full max-w-md text-center">
+        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-blue-100">
           <svg
             className="h-8 w-8 text-blue-600"
             fill="none"
@@ -94,10 +94,10 @@ function SignInContent() {
               />
               <button
                 type="submit"
-                className="w-full flex items-center justify-center gap-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition duration-200"
+                className="flex w-full items-center justify-center gap-3 rounded-lg bg-blue-600 px-4 py-3 font-semibold text-white transition duration-200 hover:bg-blue-700"
               >
                 <svg
-                  className="w-5 h-5"
+                  className="h-5 w-5"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -118,7 +118,7 @@ function SignInContent() {
             className="inline-flex items-center text-sm text-gray-500 hover:text-gray-700"
           >
             <svg
-              className="w-4 h-4 mr-2"
+              className="mr-2 h-4 w-4"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth="1.5"

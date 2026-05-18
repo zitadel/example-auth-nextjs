@@ -15,14 +15,15 @@
     "lint:fix": "eslint . --fix",
     "depcheck": "npx knip",
     "prepack": "tsc --noEmit",
+    "preview": "next start",
     "start": "next dev",
     "test": "playwright test"
   },
   "dependencies": {
-    "@auth/core": "^0.40.0",
-    "@zitadel/next-auth": "^0.1.0",
+    "@auth/core": "^0.41.0",
+    "@zitadel/next-auth": "file:../next-auth",
     "next": "^16.2.6",
-    "openid-client": "^6.6.2",
+    "openid-client": "^6.6.3",
     "react": "^19",
     "react-dom": "^19"
   },
@@ -32,18 +33,19 @@
   "devDependencies": {
     "@commitlint/config-conventional": "^20.5.0",
     "@playwright/test": "^1.56.1",
-    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/postcss": "^4.0.0",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9.39.1",
     "eslint-config-next": "^16",
     "eslint-config-prettier": "^10.1.8",
+    "globals": "^16.3.0",
     "knip": "^5.64.1",
     "postcss": "^8.5.10",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.14",
-    "tailwindcss": "^4",
+    "tailwindcss": "^4.0.0",
     "typescript": "~5.9.2"
   }
 }

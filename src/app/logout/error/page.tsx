@@ -1,3 +1,4 @@
+// noinspection JSUnusedGlobalSymbols
 'use client';
 
 import Link from 'next/link';
@@ -9,9 +10,9 @@ function LogoutErrorContent() {
   const reason = params.get('reason') || 'An unknown error occurred.';
 
   return (
-    <main className="flex-1 grid place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
+    <main className="grid flex-1 place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
       <div className="text-center">
-        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-red-100 mb-6">
+        <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-red-100">
           <svg
             className="h-8 w-8 text-red-600"
             fill="none"

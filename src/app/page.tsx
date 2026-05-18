@@ -1,3 +1,4 @@
+// noinspection JSUnusedGlobalSymbols
 'use client';
 
 import { signIn } from '@zitadel/next-auth/react';
@@ -9,23 +10,23 @@ export default function Home() {
   return (
     <>
       <Header isAuthenticated={false} />
-      <main className="flex-1 flex items-center justify-center px-6 py-12">
-        <div className="max-w-6xl w-full">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <main className="flex flex-1 items-center justify-center px-6 py-12">
+        <div className="w-full max-w-6xl">
+          <div className="grid items-center gap-16 lg:grid-cols-2">
             <div>
-              <h1 className="text-4xl font-bold text-gray-900 mb-6">
+              <h1 className="mb-6 text-4xl font-bold text-gray-900">
                 PKCE Authentication Demo
               </h1>
-              <p className="text-xl text-gray-600 mb-8">
+              <p className="mb-8 text-xl text-gray-600">
                 This application demonstrates a PKCE authentication flow with
                 Zitadel. Perfect for learning OAuth 2.0 security patterns and
                 integrating with your own application.
               </p>
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-blue-100">
                     <svg
-                      className="w-5 h-5 text-blue-600"
+                      className="h-5 w-5 text-blue-600"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -37,7 +38,7 @@ export default function Home() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                    <h3 className="mb-1 text-lg font-semibold text-gray-900">
                       Secure by Design
                     </h3>
                     <p className="text-gray-600">
@@ -47,9 +48,9 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                  <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-green-100">
                     <svg
-                      className="w-5 h-5 text-green-600"
+                      className="h-5 w-5 text-green-600"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -61,7 +62,7 @@ export default function Home() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                    <h3 className="mb-1 text-lg font-semibold text-gray-900">
                       Standards Compliant
                     </h3>
                     <p className="text-gray-600">
@@ -71,9 +72,9 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
+                  <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-purple-100">
                     <svg
-                      className="w-5 h-5 text-purple-600"
+                      className="h-5 w-5 text-purple-600"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -85,7 +86,7 @@ export default function Home() {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                    <h3 className="mb-1 text-lg font-semibold text-gray-900">
                       Developer Friendly
                     </h3>
                     <p className="text-gray-600">
@@ -98,24 +99,24 @@ export default function Home() {
             </div>
             <div className="flex justify-center">
               <div className="w-full max-w-md">
-                <div className="bg-white rounded-lg border border-gray-200 p-8">
-                  <div className="text-center mb-8">
-                    <div className="w-80 h-32 bg-white rounded-lg flex items-center justify-center mx-auto mb-6">
+                <div className="rounded-lg border border-gray-200 bg-white p-8">
+                  <div className="mb-8 text-center">
+                    <div className="mx-auto mb-6 flex h-32 w-80 items-center justify-center rounded-lg bg-white">
                       <Image
                         src="/openid-logo.svg"
                         alt="OpenID"
                         width={288}
                         height={112}
-                        className="w-72 h-28"
+                        className="h-28 w-72"
                       />
                     </div>
                   </div>
                   <button
                     onClick={() => signIn('zitadel')}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition duration-200 flex items-center justify-center space-x-2 mb-6 cursor-pointer"
+                    className="mb-6 flex w-full cursor-pointer items-center justify-center space-x-2 rounded-lg bg-blue-600 px-4 py-3 font-semibold text-white transition duration-200 hover:bg-blue-700"
                   >
                     <svg
-                      className="w-5 h-5 text-white"
+                      className="h-5 w-5 text-white"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -132,30 +133,30 @@ export default function Home() {
                     <span>Login</span>
                   </button>
                   <div className="text-center">
-                    <p className="text-sm text-gray-500 mb-4">
+                    <p className="mb-4 text-sm text-gray-500">
                       What happens when you click the button:
                     </p>
-                    <div className="text-left space-y-2">
+                    <div className="space-y-2 text-left">
                       <div className="flex items-center text-xs text-gray-600">
-                        <span className="w-4 h-4 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xs font-semibold mr-2">
+                        <span className="mr-2 flex h-4 w-4 items-center justify-center rounded-full bg-blue-100 text-xs font-semibold text-blue-600">
                           1
                         </span>
                         Generate code verifier & challenge
                       </div>
                       <div className="flex items-center text-xs text-gray-600">
-                        <span className="w-4 h-4 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xs font-semibold mr-2">
+                        <span className="mr-2 flex h-4 w-4 items-center justify-center rounded-full bg-blue-100 text-xs font-semibold text-blue-600">
                           2
                         </span>
                         Redirect to Zitadel authorization
                       </div>
                       <div className="flex items-center text-xs text-gray-600">
-                        <span className="w-4 h-4 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-xs font-semibold mr-2">
+                        <span className="mr-2 flex h-4 w-4 items-center justify-center rounded-full bg-blue-100 text-xs font-semibold text-blue-600">
                           3
                         </span>
                         Exchange code for tokens
                       </div>
                       <div className="flex items-center text-xs text-gray-600">
-                        <span className="w-4 h-4 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xs font-semibold mr-2">
+                        <span className="mr-2 flex h-4 w-4 items-center justify-center rounded-full bg-green-100 text-xs font-semibold text-green-600">
                           ✓
                         </span>
                         Access granted securely
@@ -171,6 +172,7 @@ export default function Home() {
                     <a
                       href="https://zitadel.com/docs/guides/integrate/oauth-recommended-flows"
                       target="_blank"
+                      rel="noreferrer"
                       className="text-blue-600 hover:text-blue-700"
                     >
                       Learn more about PKCE
