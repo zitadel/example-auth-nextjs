@@ -1,26 +1,21 @@
-// noinspection JSUnusedGlobalSymbols
-'use client';
-
-import { useEffect } from 'react';
-import { signIn, useSession } from '@zitadel/next-auth/react';
+import { headers } from 'next/headers';
+import { redirect } from 'next/navigation';
+import { getSession, signInUrl } from '@/lib/auth';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 
-export default function ProfilePage() {
-  const { data: session, status } = useSession();
+// noinspection JSUnusedGlobalSymbols
+export default async function ProfilePage() {
+  // Build a Request from the incoming headers so the SDK can read the
+  // session cookie. Only the `cookie` header is consulted, so the URL
+  // hostname here is irrelevant.
+  const reqHeaders = await headers();
+  const session = await getSession(
+    new Request('http://localhost', { headers: reqHeaders }),
+  );
 
-  useEffect(() => {
-    if (status === 'unauthenticated') {
-      void signIn('zitadel', { callbackUrl: '/profile' });
-    }
-  }, [status]);
-
-  if (status === 'loading') {
-    return (
-      <div className="flex min-h-screen items-center justify-center">
-        <p>Loading your session…</p>
-      </div>
-    );
+  if (!session) {
+    redirect(signInUrl({ redirectTo: '/profile' }));
   }
 
   return (
