@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@auth/core": "^0.41.0",
-    "@zitadel/next-auth": "file:../next-auth",
+    "@zitadel/next-auth": "^1.0.0",
     "next": "^16.2.6",
     "openid-client": "^6.6.3",
     "react": "^19",
