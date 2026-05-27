@@ -1,8 +1,7 @@
 module.exports = {
   ignoreDependencies: [
     '@commitlint/config-conventional',
-    '@zitadel/next-auth',
-    'globals',
+    'globals'
   ],
   entry: ['src/app/**/*', 'src/components/**/*', 'src/lib/**/*'],
   ignore: ['commitlint.config.js'],
