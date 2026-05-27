@@ -15,7 +15,7 @@ import { getMessage } from '@/lib/message';
 function SignInContent() {
   const searchParams = useSearchParams();
   const error = searchParams.get('error');
-  const callbackUrl = searchParams.get('callbackUrl');
+  const callbackUrl = searchParams.get('callbackUrl') ?? '/profile';
 
   const [providers, setProviders] = useState<Record<
     string,
@@ -87,11 +87,7 @@ function SignInContent() {
               className="space-y-4"
             >
               <input type="hidden" name="csrfToken" value={csrfToken} />
-              <input
-                type="hidden"
-                name="callbackUrl"
-                value={callbackUrl ?? undefined}
-              />
+              <input type="hidden" name="callbackUrl" value={callbackUrl} />
               <button
                 type="submit"
                 className="flex w-full items-center justify-center gap-3 rounded-lg bg-blue-600 px-4 py-3 font-semibold text-white transition duration-200 hover:bg-blue-700"
