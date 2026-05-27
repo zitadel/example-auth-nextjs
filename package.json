@@ -40,7 +40,6 @@
     "eslint": "^9.39.1",
     "eslint-config-next": "^16",
     "eslint-config-prettier": "^10.1.8",
-    "globals": "^16.3.0",
     "knip": "^5.64.1",
     "postcss": "^8.5.10",
     "prettier": "^3.6.2",
