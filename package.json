@@ -20,15 +20,12 @@
     "test": "playwright test"
   },
   "dependencies": {
-    "@auth/core": "^0.41.0",
+    "@auth/core": "^0.40.0",
     "@zitadel/next-auth": "^1.0.0",
     "next": "^16.2.6",
     "openid-client": "^6.6.3",
     "react": "^19",
     "react-dom": "^19"
-  },
-  "overrides": {
-    "postcss": "^8.5.10"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^20.5.0",
