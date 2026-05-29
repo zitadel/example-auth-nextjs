@@ -8,13 +8,13 @@ const testEnv = {
   ZITADEL_DOMAIN: 'https://test.zitadel.cloud',
   ZITADEL_CLIENT_ID: 'test-client-id',
   ZITADEL_CLIENT_SECRET: 'test-client-secret',
-  ZITADEL_CALLBACK_URL: 'http://localhost:3000/api/auth/callback',
+  ZITADEL_CALLBACK_URL: 'http://localhost:3000/api/auth/callback/zitadel',
   ZITADEL_POST_LOGOUT_URL: 'http://localhost:3000/api/auth/logout/callback',
+  ZITADEL_POST_LOGIN_URL: '/profile',
   AUTH_URL: 'http://localhost:3000',
-  NEXTAUTH_URL: 'http://localhost:3000',
-  NEXTAUTH_SECRET: 'test-nextauth-secret-for-e2e-tests',
 };
 
+// noinspection JSUnusedGlobalSymbols
 export default defineConfig({
   testDir: './test',
   outputDir: './build/test-results',

@@ -1,3 +1,4 @@
+// noinspection JSUnusedGlobalSymbols
 import './globals.css';
 import { Metadata } from 'next';
 import { ZitadelProvider } from '@/app/providers';
@@ -19,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-gray-50 min-h-screen flex flex-col">
+      <body className="flex min-h-screen flex-col bg-gray-50">
         <ErrorBoundary showDetails={process.env.NODE_ENV === 'development'}>
           <ZitadelProvider>{children}</ZitadelProvider>
         </ErrorBoundary>

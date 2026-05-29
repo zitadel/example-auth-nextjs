@@ -1,37 +1,33 @@
-'use client';
-
-import { useEffect } from 'react';
-import { signIn, useSession } from 'next-auth/react';
+import { headers } from 'next/headers';
+import { redirect } from 'next/navigation';
+import { getSession, signInUrl } from '@/lib/auth';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 
-export default function ProfilePage() {
-  const { data: session, status } = useSession();
+// noinspection JSUnusedGlobalSymbols
+export default async function ProfilePage() {
+  // Build a Request from the incoming headers so the SDK can read the
+  // session cookie. Only the `cookie` header is consulted, so the URL
+  // hostname here is irrelevant.
+  const reqHeaders = await headers();
+  const session = await getSession(
+    new Request('http://localhost', { headers: reqHeaders }),
+  );
 
-  useEffect(() => {
-    if (status === 'unauthenticated') {
-      void signIn('zitadel', { callbackUrl: '/profile' });
-    }
-  }, [status]);
-
-  if (status === 'loading') {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <p>Loading your session…</p>
-      </div>
-    );
+  if (!session) {
+    redirect(signInUrl({ redirectTo: '/profile' }));
   }
 
   return (
-    <div className="bg-gray-50 min-h-screen flex flex-col">
+    <div className="flex min-h-screen flex-col bg-gray-50">
       <Header isAuthenticated={true} />
       <main className="flex-1 px-6 py-12">
-        <div className="max-w-5xl mx-auto">
-          <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-lg p-6 mb-8">
+        <div className="mx-auto max-w-5xl">
+          <div className="mb-8 rounded-lg border border-green-200 bg-gradient-to-r from-green-50 to-emerald-50 p-6">
             <div className="flex items-center">
-              <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-500">
                 <svg
-                  className="w-6 h-6 text-white"
+                  className="h-6 w-6 text-white"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -46,40 +42,40 @@ export default function ProfilePage() {
                 <h2 className="text-xl font-semibold text-green-900">
                   Authentication Successful!
                 </h2>
-                <p className="text-green-700 mt-1">
+                <p className="mt-1 text-green-700">
                   You have successfully completed the PKCE authentication flow.
                 </p>
               </div>
             </div>
           </div>
-          <div className="bg-white rounded-lg border border-gray-200 p-8 mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-6">
+          <div className="mb-8 rounded-lg border border-gray-200 bg-white p-8">
+            <h1 className="mb-6 text-3xl font-bold text-gray-900">
               🔐 OAuth 2.0 PKCE Flow Completed
             </h1>
-            <p className="text-lg text-gray-700 mb-8">
+            <p className="mb-8 text-lg text-gray-700">
               Congratulations! You have successfully completed the OAuth 2.0
               PKCE (Proof Key for Code Exchange) authentication flow. This
               demonstrates how modern applications securely authenticate users
               with Zitadel.
             </p>
-            <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <div className="mb-8 grid gap-8 md:grid-cols-2">
               <div>
-                <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                <h2 className="mb-4 text-xl font-semibold text-gray-900">
                   What is PKCE?
                 </h2>
-                <p className="text-gray-700 mb-4">
+                <p className="mb-4 text-gray-700">
                   PKCE is a security extension to OAuth 2.0 that protects
                   against authorization code interception attacks. It&apos;s
                   especially important for public clients like single-page
                   applications and mobile apps.
                 </p>
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                <h3 className="mb-3 text-lg font-semibold text-gray-900">
                   Key Benefits:
                 </h3>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-center">
                     <svg
-                      className="w-4 h-4 text-green-500 mr-2"
+                      className="mr-2 h-4 w-4 text-green-500"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -93,7 +89,7 @@ export default function ProfilePage() {
                   </li>
                   <li className="flex items-center">
                     <svg
-                      className="w-4 h-4 text-green-500 mr-2"
+                      className="mr-2 h-4 w-4 text-green-500"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -107,7 +103,7 @@ export default function ProfilePage() {
                   </li>
                   <li className="flex items-center">
                     <svg
-                      className="w-4 h-4 text-green-500 mr-2"
+                      className="mr-2 h-4 w-4 text-green-500"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -122,12 +118,12 @@ export default function ProfilePage() {
                 </ul>
               </div>
               <div>
-                <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                <h2 className="mb-4 text-xl font-semibold text-gray-900">
                   Flow Steps Completed
                 </h2>
                 <div className="space-y-4">
                   <div className="flex items-center">
-                    <div className="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-semibold mr-3">
+                    <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-green-500 text-sm font-semibold text-white">
                       ✓
                     </div>
                     <div>
@@ -140,7 +136,7 @@ export default function ProfilePage() {
                     </div>
                   </div>
                   <div className="flex items-center">
-                    <div className="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-semibold mr-3">
+                    <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-green-500 text-sm font-semibold text-white">
                       ✓
                     </div>
                     <div>
@@ -153,7 +149,7 @@ export default function ProfilePage() {
                     </div>
                   </div>
                   <div className="flex items-center">
-                    <div className="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-semibold mr-3">
+                    <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-green-500 text-sm font-semibold text-white">
                       ✓
                     </div>
                     <div>
@@ -166,7 +162,7 @@ export default function ProfilePage() {
                     </div>
                   </div>
                   <div className="flex items-center">
-                    <div className="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-semibold mr-3">
+                    <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-green-500 text-sm font-semibold text-white">
                       ✓
                     </div>
                     <div>
@@ -179,7 +175,7 @@ export default function ProfilePage() {
                     </div>
                   </div>
                   <div className="flex items-center">
-                    <div className="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-semibold mr-3">
+                    <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-green-500 text-sm font-semibold text-white">
                       ✓
                     </div>
                     <div>
@@ -195,16 +191,16 @@ export default function ProfilePage() {
               </div>
             </div>
           </div>
-          <div className="bg-white rounded-lg border border-gray-200 p-8">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+          <div className="rounded-lg border border-gray-200 bg-white p-8">
+            <h2 className="mb-4 text-2xl font-semibold text-gray-900">
               Session Information
             </h2>
-            <p className="text-gray-600 mb-6">
+            <p className="mb-6 text-gray-600">
               Below is the authentication data stored in your session after a
               successful PKCE flow:
             </p>
-            <div className="bg-gray-900 rounded-lg p-6 overflow-x-auto">
-              <pre className="text-sm text-green-400 font-mono leading-relaxed">
+            <div className="overflow-x-auto rounded-lg bg-gray-900 p-6">
+              <pre className="font-mono text-sm leading-relaxed text-green-400">
                 {JSON.stringify(session, null, 2)}
               </pre>
             </div>

@@ -22,7 +22,7 @@ Before you begin, ensure you have the following:
 
 #### System Requirements
 
-- Node.js (v20 or later is recommended)
+- Node.js (v22 or later is recommended)
 - npm, yarn, or pnpm package manager
 
 #### Account Setup

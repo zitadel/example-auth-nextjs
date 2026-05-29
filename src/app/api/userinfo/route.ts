@@ -1,5 +1,5 @@
-import { getServerSession } from 'next-auth/next';
-import { authOptions } from '@/lib/auth';
+// noinspection JSUnusedGlobalSymbols
+import { getSession } from '@/lib/auth';
 import { NextResponse } from 'next/server';
 
 /**
@@ -20,8 +20,8 @@ import { NextResponse } from 'next/server';
  *
  * Extended user profile with ZITADEL-specific claims like roles and metadata.
  */
-export async function GET(): Promise<NextResponse> {
-  const session = await getServerSession(authOptions);
+export async function GET(request: Request): Promise<NextResponse> {
+  const session = await getSession(request as Request);
 
   if (!session?.accessToken) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });

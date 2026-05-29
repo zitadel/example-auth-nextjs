@@ -1,6 +1,6 @@
 'use client';
 
-import { SessionProvider } from 'next-auth/react';
+import { SessionProvider } from '@zitadel/next-auth/react';
 import React from 'react';
 
 export function ZitadelProvider({ children }: { children: React.ReactNode }) {

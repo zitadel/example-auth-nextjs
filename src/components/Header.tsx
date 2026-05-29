@@ -5,10 +5,11 @@ type HeaderProps = {
   isAuthenticated: boolean;
 };
 
+// noinspection JSUnusedGlobalSymbols
 export function Header({ isAuthenticated }: HeaderProps) {
   return (
-    <header className="bg-white border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-6 py-4">
+    <header className="border-b border-gray-200 bg-white">
+      <div className="mx-auto max-w-7xl px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <Image
@@ -16,7 +17,7 @@ export function Header({ isAuthenticated }: HeaderProps) {
               alt="App Icon"
               width={40}
               height={40}
-              className="w-8 h-8"
+              className="h-8 w-8"
             />
             <h1 className="text-xl font-semibold text-gray-900">
               Demo Application
