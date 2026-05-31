@@ -35,14 +35,18 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9.39.1",
-    "eslint-config-next": "^16",
     "eslint-config-prettier": "^10.1.8",
     "knip": "^5.64.1",
     "postcss": "^8.5.10",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.8.0",
     "tailwindcss": "^4.3.0",
-    "typescript": "~5.9.2"
+    "typescript": "~5.9.2",
+    "@eslint/js": "^9.38.0",
+    "@next/eslint-plugin-next": "^16.0.0",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "globals": "^16.3.0",
+    "typescript-eslint": "^8.60.0"
   },
   "overrides": {
     "postcss": "^8.5.10"
