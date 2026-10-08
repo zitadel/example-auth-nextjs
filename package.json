@@ -22,7 +22,7 @@
   "dependencies": {
     "@auth/core": "^0.41.3",
     "@zitadel/next-auth": "^1.1.2",
-    "next": "^16.3.4",
+    "next": "^16.4.0",
     "openid-client": "^6.6.3",
     "react": "^19",
     "react-dom": "^19"
